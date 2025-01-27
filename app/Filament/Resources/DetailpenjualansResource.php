@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\DetailpenjualansResource\Pages;
 use App\Filament\Resources\DetailpenjualansResource\RelationManagers;
 use App\Models\Detailpenjualans;
+use Filament\Forms\Components\{Select, TextInput};
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -23,27 +24,27 @@ class DetailpenjualansResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('PenjualanID')
+                Select::make('PenjualanID')
                     ->label('ID Penjualan')
                     ->options(
                         \App\Models\Penjualans::all()->pluck('PenjualanID', 'PenjualanID')
                     )
                     ->required(),
-                Forms\Components\Select::make('ProdukID')
-                    ->label('ID Produk')
+                Select::make('ProdukID')
+                    ->label('Nama Produk')
                     ->options(
                         \App\Models\Produks::all()->pluck('NamaProduk', 'ProdukID')
                     )
                     ->required(),
-                Forms\Components\TextInput::make('Jumlah')
+                TextInput::make('Jumlah')
                     ->label('Jumlah')
                     ->numeric()
                     ->minValue(0)
                     ->maxValue(1000)
                     ->step(1)
                     ->required(),
-                Forms\Components\TextInput::make('Subtotal')
-                    ->label('Harga')
+                TextInput::make('Subtotal')
+                    ->label('Subtotal')
                     ->numeric()
                     ->minValue(0)
                     ->maxValue(1000000)
@@ -64,8 +65,8 @@ class DetailpenjualansResource extends Resource
                     ->label('ID Penjualan')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('ProdukID')
-                    ->label('ID Produk')
+                Tables\Columns\TextColumn::make('Produks.NamaProduk')
+                    ->label('Nama Produk')
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('Jumlah')
@@ -73,7 +74,7 @@ class DetailpenjualansResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('Subtotal')
-                    ->label('Harga')
+                    ->label('Subtotal')
                     ->searchable()
                     ->sortable(),
             ])

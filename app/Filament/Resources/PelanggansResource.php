@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PelanggansResource\Pages;
 use App\Filament\Resources\PelanggansResource\RelationManagers;
 use App\Models\Pelanggans;
+use Filament\Forms\Components\{TextInput, TextArea};
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,8 +13,6 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\TextArea;
 
 class PelanggansResource extends Resource
 {
@@ -25,13 +24,13 @@ class PelanggansResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('NamaPelanggan')
+                TextInput::make('NamaPelanggan')
                     ->label('Nama Pelanggan')
                     ->required(),
-                Forms\Components\TextArea::make('Alamat')
+                TextArea::make('Alamat')
                     ->label('Alamat')
                     ->required(),
-                Forms\Components\TextInput::make('NomorTelepon')
+                TextInput::make('NomorTelepon')
                     ->label('Telepon')
                     ->tel()
                     ->required(),

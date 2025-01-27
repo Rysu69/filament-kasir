@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProduksResource\Pages;
 use App\Filament\Resources\ProduksResource\RelationManagers;
 use App\Models\Produks;
+use Filament\Forms\Components\{TextInput, TextArea};
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -25,17 +26,17 @@ class ProduksResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('NamaProduk')
+                TextInput::make('NamaProduk')
                     ->label('Nama Produk')
                     ->required(),
-                Forms\Components\TextInput::make('Harga')
+                TextInput::make('Harga')
                     ->label('Harga Produk')
                     ->numeric()
                     ->minValue(0)
                     ->maxValue(1000000)
                     ->step(0.01)
                     ->required(),
-                Forms\Components\TextInput::make('Stok')
+                TextInput::make('Stok')
                     ->label('Stok Produk')
                     ->numeric()
                     ->minValue(0)

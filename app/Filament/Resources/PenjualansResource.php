@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PenjualansResource\Pages;
 use App\Filament\Resources\PenjualansResource\RelationManagers;
 use App\Models\Penjualans;
+use Filament\Forms\Components\{Datepicker, Select, TextInput};
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -23,16 +24,16 @@ class PenjualansResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('PelangganID')
+                Select::make('PelangganID')
                     ->label('ID Pelanggan')
                     ->options(
                         \App\Models\Pelanggans::all()->pluck('NamaPelanggan', 'PelangganID')
                     )
                     ->required(),
-                Forms\Components\Datepicker::make('TanggalPenjualan')
+                Datepicker::make('TanggalPenjualan')
                     ->label('Tanggal')
                     ->required(),
-                Forms\Components\TextInput::make('TotalHarga')
+                TextInput::make('TotalHarga')
                     ->label('Total')
                     ->numeric()
                     ->minValue(0)
