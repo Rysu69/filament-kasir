@@ -33,7 +33,10 @@ class PetugasResource extends Resource
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->dehydrateStateUsing(fn ($state) => bcrypt($state))
+                    ->required(fn (string $context): bool => $context === 'create')
+                    ->nullable(fn (string $context): bool => $context === 'edit'),
             ]);
     }
 

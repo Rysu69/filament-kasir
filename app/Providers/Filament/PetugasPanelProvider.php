@@ -53,6 +53,7 @@ class PetugasPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->authGuard('petugas');
     }
 }
