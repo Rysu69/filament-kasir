@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Petugas\Resources;
 
-use App\Filament\Resources\PenjualansResource\Pages;
-use App\Filament\Resources\PenjualansResource\RelationManagers;
+use App\Filament\Petugas\Resources\PenjualansResource\Pages;
+use App\Filament\Petugas\Resources\PenjualansResource\RelationManagers;
 use App\Models\Penjualans;
-use Filament\Forms\Components\{Datepicker, Select, TextInput};
 use Filament\Forms;
+use Filament\Forms\Components\{Datepicker, Select, TextInput};
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
