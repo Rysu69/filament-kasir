@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('detailpenjualans', function (Blueprint $table) {
             $table->id('DetailID');
             $table->foreignId('PenjualanID')->references('PenjualanID')->on('penjualans')->cascadeOnDelete();
-            $table->Integer('ProdukID');
+            $table->foreignId('ProdukID')->references('ProdukID')->on('produks')->cascadeOnDelete();
             $table->Integer('Jumlah');
             $table->Integer('Subtotal');
             $table->timestamps();

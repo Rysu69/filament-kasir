@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('penjualans', function (Blueprint $table) {
             $table->id('PenjualanID');
             $table->date('TanggalPenjualan');
+            $table->foreignID('PetugasID')->references('PetugasID')->on('petugas')->cascadeOnDelete();
             $table->decimal('TotalHarga', 10, 2);
             $table->foreignId('PelangganID')->references('PelangganID')->on('pelanggans')->cascadeOnDelete();
             $table->timestamps();
